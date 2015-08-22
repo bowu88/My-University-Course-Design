@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="AsylumSystem_Tianditu"
+  id="myeclipse.1397747924018"
+  context-root="/AsylumSystem_Tianditu"
+  j2ee-spec="5.0"
+  archive="AsylumSystem_Tianditu.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

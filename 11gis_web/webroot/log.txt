@@ -1,0 +1,3 @@
+问题1：获取表单提交的数据时发生中文乱码
+解决方案:解决此问题的办法有两个。一是不修改其他设置，只是在将表单中的中文数据取出来过后再转换编码，方法如语句String str=request.getParameter("chStr");String str=new String(sre.getByte("ISO-8859-1"),"utf-8"),但这种方法只是从一个局部来考虑问题，如果这样的地方太多，就不得不将这条语句重复写很多次，在比较大的项目中，这是一种不太可行的方案。
+另一个方法就是让对所有页面的请求都通过一个Filter，将处理字符集设置为utf-8。具体的做法如下（在Tomcat的webapps/servlet-examples目录有一个完整的例子，也可以参考其中web.xml和SetCharacter EncodingFilter的配置）：

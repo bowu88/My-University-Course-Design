@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name></display-name>
+	<!-- 过滤器 -->
+	<filter>
+		<!-- 解决中文乱码过滤器 -->
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<!-- <filter-class>cn.edu.fjnu.gis11.utils.SetCharacterEncodingFilter</filter-class>
+	 --><filter-class>cn.edu.fjnu.gis11.filter.CharacterEncodingFilter</filter-class>
+	 	<init-param>
+			<param-name>charset</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 设置css js img缓存 -->
+	<filter>
+		<filter-name>CacheForWeek</filter-name>
+		<filter-class>
+				cn.edu.fjnu.gis11.filter.ResponseHeaderFilter
+		</filter-class>
+		<init-param>
+				<param-name>Cache-Control</param-name>
+				<param-value>max-age=604800, public</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+			<filter-name>CacheForWeek</filter-name>
+			<url-pattern>/img/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+			<filter-name>CacheForWeek</filter-name>
+			<url-pattern>/js/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+			<filter-name>CacheForWeek</filter-name>
+			<url-pattern>/css/*</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>LoginUIServlet</servlet-name>
+		<servlet-class>cn.edu.fjnu.gis11.web.UI.LoginUIServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>cn.edu.fjnu.gis11.web.controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>cn.edu.fjnu.gis11.web.controller.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>RegisterUIServlet</servlet-name>
+		<servlet-class>cn.edu.fjnu.gis11.web.UI.RegisterUIServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckCodeImage</servlet-name>
+    <servlet-class>cn.edu.fjnu.gis11.utils.CheckCodeImage</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>cn.edu.fjnu.gis11.web.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ContactsServlet</servlet-name>
+    <servlet-class>cn.edu.fjnu.gis11.web.controller.ContactsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GraphServlet</servlet-name>
+    <servlet-class>cn.edu.fjnu.gis11.web.controller.GraphServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GraphUIServlet</servlet-name>
+    <servlet-class>cn.edu.fjnu.gis11.web.UI.GraphUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>PostCharacterTestServlet</servlet-name>
+    <servlet-class>junit.test.PostCharacterTestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>HuiguiServlet</servlet-name>
+    <servlet-class>cn.edu.fjnu.gis11.web.controller.HuiguiServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>HuiguiUIServlet</servlet-name>
+    <servlet-class>cn.edu.fjnu.gis11.web.UI.HuiguiUIServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>LoginUIServlet</servlet-name>
+		<url-pattern>/servlet/LoginUIServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/servlet/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/servlet/RegisterServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterUIServlet</servlet-name>
+		<url-pattern>/servlet/RegisterUIServlet</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckCodeImage</servlet-name>
+    <url-pattern>/servlet/CheckCodeImage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/servlet/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ContactsServlet</servlet-name>
+    <url-pattern>/servlet/ContactsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GraphServlet</servlet-name>
+    <url-pattern>/servlet/GraphServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GraphUIServlet</servlet-name>
+    <url-pattern>/servlet/GraphUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PostCharacterTestServlet</servlet-name>
+    <url-pattern>/servlet/PostCharacterTestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HuiguiServlet</servlet-name>
+    <url-pattern>/servlet/HuiguiServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HuiguiUIServlet</servlet-name>
+    <url-pattern>/servlet/HuiguiUIServlet</url-pattern>
+  </servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

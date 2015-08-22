@@ -1,0 +1,30 @@
+#������
+CREATE DATABASE asylum_system CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
+use asylum_system;
+#������
+
+#1.asylums
+
+create table asylums(
+	id varchar(40) primary key,
+	name varchar(100) not null,
+	address varchar(100),
+	classid varchar(20),
+	area double ,
+	people int,
+	img varchar(100),
+	description varchar(255),
+	x double,
+	y double
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+create table  earthquake(
+	id varchar(40) primary key,
+	location varchar(100) ,
+	time varchar(100),
+	magnitude double,
+	x double ,
+	y double,
+	depth double
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
