@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="FjnuMap"
+  id="myeclipse.1410673434021"
+  context-root="/FjnuMap"
+  j2ee-spec="5.0"
+  archive="FjnuMap.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

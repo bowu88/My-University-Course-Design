@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="tk.tingwode.domain.Voice" table="voices">
+		<id name="id" type="string">
+			<column name="id"></column>
+			<generator class="uuid"></generator>
+		</id>
+
+		<property name="title" type="string" not-null="true" length="100"
+			column="title" />
+
+		<property name="tag" type="string" column="tag" />
+
+		<property name="description" type="string" column="description" />
+
+		<property name="picture_url" type="string" length="100"
+			column="picture_url" />
+
+		<property name="audio_url" type="string" length="100" column="audio_url" />
+
+		<property name="latitude" column="latitude" type="double" />
+		<property name="longitude" column="longitude" type="double" />
+
+		<property name="play_count" column="play_count" type="int" />
+
+		<property name ="date" update="false">
+			<column name="date" sql-type="timestamp" default="CURRENT_TIMESTAMP" />
+		</property>
+
+		<!-- 所属用户 -->
+		<many-to-one name="user" lazy="false" class="tk.tingwode.domain.User"
+			column="user_id" cascade="save-update">
+		</many-to-one>
+
+		<!-- 所属专辑 -->
+		<set name="albums" inverse="true" lazy="false" cascade="save-update"
+			table="album_voice_relation">
+			<key column="voice_id"></key>
+			<many-to-many class="tk.tingwode.domain.Album" column="album_id"></many-to-many>
+		</set>
+
+		<!-- 赞的用户 -->
+		<set name="users_like" inverse="true" lazy="false" cascade="save-update"
+			table="voice_like">
+			<key column="voice_id"></key>
+			<many-to-many class="tk.tingwode.domain.User" column="user_id"></many-to-many>
+		</set>
+
+		<!-- 收藏的用户 -->
+		<set name="users_favorite" inverse="true" lazy="false" cascade="save-update"
+			table="voice_favorites">
+			<key column="voice_id"></key>
+			<many-to-many class="tk.tingwode.domain.User" column="user_id"></many-to-many>
+		</set>
+
+	</class>
+</hibernate-mapping>

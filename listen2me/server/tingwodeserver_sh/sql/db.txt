@@ -1,0 +1,104 @@
+CREATE DATABASE tingwode CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
+use tingwode;
+
+#1.users
+
+create table users(
+	id varchar(40) primary key,
+	
+	username varchar(100) not null unique,
+	email varchar(100) not null unique,
+	password varchar(20) not null,
+	gender varchar(4) ,
+	photo_url varchar(100)
+	
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#2.albums
+
+create table albums(
+	id varchar(40) primary key,
+	user_id varchar(40),
+	
+	name varchar(100) not null,
+	date timestamp default CURRENT_TIMESTAMP,
+	description varchar(255)
+	
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#3.voices
+
+create table voices(
+	id varchar(40) primary key,
+	user_id varchar(40),
+	
+	title varchar(100) not null,
+	tag varchar(100),
+	description varchar(255),
+	picture_url varchar(100),
+	audio_url varchar(100) not null,
+	latitude double,
+	longitude double,
+	date timestamp default CURRENT_TIMESTAMP,
+	play_count int,
+	
+	constraint voices_userid_FK foreign key(user_id) references users(id)
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#4.album_voice_relation
+
+create table album_voice_relation(
+	album_id varchar(40),
+	voice_id varchar(40),
+	primary key (album_id,voice_id),
+	constraint avrel_albumid_FK foreign key(album_id) references albums(id),
+	constraint avrel_voiceid_FK foreign key(voice_id) references voices(id)
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#5.follow
+create table follow(
+	following_id varchar(40),
+	followed_id varchar(40),
+	primary key (following_id,followed_id),
+	constraint follow_followingid_FK foreign key(following_id) references users(id),
+	constraint follow_followedid_FK foreign key(followed_id) references users(id)
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#6.voice_favorites
+create table voice_favorites(
+	user_id varchar(40),
+	voice_id varchar(40),
+	primary key (user_id,voice_id),
+	constraint ve_userid_FK foreign key(user_id) references users(id),
+	constraint ve_voiceid_FK foreign key(voice_id) references voices(id)
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#7.album_favorites
+create table album_favorites(
+	user_id varchar(40),
+	album_id varchar(40),
+	primary key (user_id,album_id),
+	constraint ae_userid_FK foreign key(user_id) references users(id),
+	constraint ae_albumid_FK foreign key(album_id) references albums(id)
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#8.voice_like
+create table voice_like(
+	user_id varchar(40),
+	voice_id varchar(40),
+	primary key (user_id,voice_id),
+	constraint vp_userid_FK foreign key(user_id) references users(id),
+	constraint vp_voiceid_FK foreign key(voice_id) references voices(id)
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+#9.album_like
+create table album_like(
+	user_id varchar(40),
+	album_id varchar(40),
+	primary key (user_id,album_id),
+	constraint ap_userid_FK foreign key(user_id) references users(id),
+	constraint ap_albumid_FK foreign key(album_id) references albums(id)
+)CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_top">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#2ea3fe"/>
+
+        <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            <Button
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/ic_action_back"
+                    android:id="@+id/danger_info_window_back"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="7dp"
+                    android:text="@string/danger_info_activity_title"
+                    android:textSize="24sp"
+                    android:textColor="#999999"
+                    android:layout_gravity="center"/>
+
+        </FrameLayout>
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#ebebeb"/>
+
+    </LinearLayout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView">
+        <RelativeLayout
+                android:padding="8dp"
+                android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView
+                    android:id="@+id/danger_info_activity_lable_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/label_text"
+                    android:text="标题："/>
+            <TextView
+                    android:text="我是标题"
+                    style="@style/context_text"
+                    android:id="@+id/danger_info_activity_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/danger_info_activity_lable_title"
+                    android:layout_alignBaseline="@+id/danger_info_activity_lable_title"
+                    android:layout_alignBottom="@+id/danger_info_activity_lable_title"
+                    android:layout_toRightOf="@+id/danger_info_activity_lable_title"
+                    android:hint="无标题"/>
+            <TextView
+                    android:id="@+id/danger_info_activity_lable_category"
+                    android:layout_below="@id/danger_info_activity_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/label_text"
+                    android:text="类别："/>
+            <TextView
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    style="@style/context_text"
+                    android:text="类别1》类别2"
+                    android:layout_toEndOf="@+id/danger_info_activity_lable_category"
+                    android:layout_alignBaseline="@+id/danger_info_activity_lable_category"
+                    android:layout_alignBottom="@+id/danger_info_activity_lable_category"
+                    android:layout_toRightOf="@+id/danger_info_activity_lable_category"
+                    android:id="@+id/danger_info_activity_category"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="标签："
+                    style="@style/label_text"
+                    android:id="@+id/danger_info_activity_lable_tags"
+                    android:layout_below="@+id/danger_info_activity_lable_category"
+                    android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
+            <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tagsLayout"
+                    android:layout_below="@+id/danger_info_activity_lable_tags" android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+                  <LinearLayout
+                          android:orientation="horizontal"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent" android:id="@+id/danger_info_activity_tagsll">
+                  </LinearLayout>
+              </HorizontalScrollView>
+  <!--<tk.fjnugis.danger.ui.FixGridLayout android:id="@+id/tagsLayout"-->
+                        <!--android:layout_width="match_parent"-->
+                      <!--android:layout_height="wrap_content"-->
+                      <!--android:layout_below="@+id/danger_info_activity_lable_tags" android:layout_alignParentLeft="true"-->
+                      <!--android:layout_alignParentStart="true"></tk.fjnugis.danger.ui.FixGridLayout>-->
+            <TextView
+                    android:id="@+id/danger_info_activity_lable_rank"
+                    android:text="危险等级："
+                    style="@style/label_text"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_below="@+id/tagsLayout"
+                    android:layout_alignLeft="@+id/danger_info_activity_lable_pictures"
+                    android:layout_alignStart="@+id/danger_info_activity_lable_pictures"/>
+            <RatingBar
+                    android:layout_below="@id/danger_info_activity_lable_rank"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/danger_info_activity_rank"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:id="@+id/danger_info_activity_rank_text"
+                    android:layout_alignTop="@+id/danger_info_activity_rank"
+                    android:layout_toRightOf="@+id/danger_info_activity_rank"
+                    android:layout_toEndOf="@+id/danger_info_activity_rank" android:layout_marginTop="19dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/label_text"
+                    android:text="描述："
+                    android:id="@+id/danger_info_activity_lable_description"
+                    android:layout_below="@+id/danger_info_activity_location_addressDesc"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/label_text"
+                    android:text="位置："
+                    android:id="@+id/danger_info_activity_lable_location"
+                    android:layout_below="@+id/danger_info_activity_rank" android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="东经：xxx度，北纬：xxx度"
+                    android:id="@+id/danger_info_activity_location_latlng"
+                    android:layout_below="@+id/danger_info_activity_lable_location"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xx省xxx市xxx县"
+                    android:id="@+id/danger_info_activity_location_address"
+                    android:layout_below="@+id/danger_info_activity_location_latlng"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/danger_info_activity_location_addressDesc"
+                    android:layout_below="@+id/danger_info_activity_location_address"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/context_text"
+                    android:ems="10"
+                    android:id="@+id/danger_info_activity_descritpion"
+                    android:text="安全隐患的详细描述"
+                    android:layout_below="@id/danger_info_activity_lable_description"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" android:hint="无详细描述"/>
+            <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="图片："
+                    android:id="@+id/danger_info_activity_lable_pictures"
+                    style="@style/label_text"
+                    android:layout_below="@+id/danger_info_activity_descritpion"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <tk.fjnugis.danger.ui.NoScrollGridView
+                    android:id="@+id/gridView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/danger_info_activity_lable_pictures"
+                    android:layout_marginLeft="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="3"
+                    android:stretchMode="columnWidth"
+                    android:visibility="gone"
+                    android:verticalSpacing="1dp"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
+
+

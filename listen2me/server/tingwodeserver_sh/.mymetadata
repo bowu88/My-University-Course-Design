@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="TingwodeServer_SH"
+  id="myeclipse.1400486424383"
+  context-root="/TingwodeServer_SH"
+  j2ee-spec="5.0"
+  archive="TingwodeServer_SH.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

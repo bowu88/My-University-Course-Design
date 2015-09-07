@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  
+    xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"  
+    android:background="#F3F1DA"
+    android:scrollbars="vertical"  
+    android:fadingEdge="vertical"> 
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+	<!-- 标题 -->
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/title_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+    
+	<!-- 头像 -->
+	
+	<RelativeLayout
+        android:id="@+id/switch_face_rl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dip"
+        android:background="@drawable/item_edit_bg"
+        android:clickable="true" 
+        android:padding="5dip" >
+
+        <ImageView
+            android:id="@+id/face"
+            android:layout_width="42dip"
+            android:layout_height="42dip"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dip"
+            android:src="@drawable/mini_avatar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_toRightOf="@id/face"
+            android:layout_gravity="center"
+            android:text="设置头像"
+            android:textColor="@android:color/black" /> 
+    </RelativeLayout>
+    
+    <!-- 邮箱 -->
+	
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:text="@string/regist_email"
+        android:textColor="@color/black"
+        android:textSize="16dip" />
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:textSize="16dip" >
+    </EditText>
+    
+    <!-- 昵称 -->
+	
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:text="昵称"
+        android:textColor="@color/black"
+        android:textSize="16dip" />
+
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:textSize="16dip" >
+    </EditText>
+
+    <!-- 密码 -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:text="@string/pwd"
+        android:textColor="@color/black"
+        android:textSize="16dip"/>
+
+    <EditText
+        android:id="@+id/txtPwd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:textSize="16dip"
+        android:password="true" >
+    </EditText>
+    <!-- 确认密码 -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:text="@string/pwd2"
+        android:textColor="@color/black"
+        android:textSize="16dip" />
+
+    <EditText
+        android:id="@+id/txtPwd2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:textSize="16dip"
+        android:password="true" >
+    </EditText>
+    <!-- 性别 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:text="性别"
+            android:layout_marginTop="5dip"
+            android:textColor="@color/black"
+            android:textSize="16dip" />
+
+        <RadioGroup
+            android:id="@+id/rbtnGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/btnGender_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="男" />
+
+            <RadioButton
+                android:id="@+id/btnGender_female"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="女" />
+        </RadioGroup>
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/registButton"
+        android:layout_width="180dip"
+        android:layout_height="50dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_regist_bg"
+        android:divider="@drawable/divider_horizontal_timeline"
+        android:dividerHeight="2.0dip"
+        android:text="@string/regist_button"
+        android:textColor="@color/white" />
+</LinearLayout>
+</ScrollView>

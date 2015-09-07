@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>
+
+    <include file="example.xml"/>
+	 -->
+    <!-- Add packages here -->
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.multipart.maxSize" value="104857600"/>
+
+    <!--公共package-->
+    <package name="default" extends="struts-default">
+
+        <global-results>
+            <!--<result name="error">/error.jsp</result>-->
+            <result name="json">/WEB-INF/jsp/json.jsp</result>
+            <result name="message">/WEB-INF/jsp/message.jsp</result>
+        </global-results>
+
+        <!--
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+        -->
+    </package>
+    <!--Action-->
+    <package name="server" namespace="/server" extends="default">
+        <action name="*-*" class="tk.fjnugis.dangerserver.action.{1}Action" method="{2}">
+            <!-- 配置允许上传的文件类型 -->
+            <param name="allowedTypes">image/bmp,image/gif,image/jpg</param>
+            <!--配置允许上传文件的扩展名,如果有多个用","隔开 -->
+            <param name="allowedExtensions">jpg,png,gif</param>
+            <!-- 配置允许上传的文件大小,最大为10m -->
+        <param name="maximumSize">104857600</param>
+    </action>
+    </package>
+    <!-- 文件下载 -->
+    <package name="file" namespace="/file" extends="struts-default">
+        <result-types>
+            <result-type name="streamx" class="com.sunspoter.lib.web.struts2.dispatcher.StreamResultX"/>
+        </result-types>
+
+        <action name="image" class="tk.fjnugis.dangerserver.action.ImageAction">
+            <result type="stream">
+                <param name="contentType">${fileType}</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">2048</param>
+            </result>
+        </action>
+    </package>
+
+</struts>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="8dp"
+              android:background="@color/white">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              style="@style/label_text"
+              android:text="按类别查询"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:layout_weight="1"
+                android:id="@+id/category" android:layout_gravity="center_horizontal"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=">"
+                android:textSize="30dp"
+                android:id="@+id/item_title"/>
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:layout_weight="1"
+                android:id="@+id/subcategory"
+                android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按标签查询："
+            style="@style/label_text"/>
+
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tags_input_editText"/>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    </FrameLayout>
+    <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="right">
+    </FrameLayout>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_selector"
+            android:textColor="@android:color/white"
+            android:text="查看"
+            android:textSize="17sp"
+            android:padding="12dp"
+            android:id="@+id/heatmap_button"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"/>
+
+</LinearLayout>

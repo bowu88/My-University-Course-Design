@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@color/white">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  style="@style/label_text"
+                  android:text="@string/danger_tag"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/upload_window_category" android:layout_gravity="center_horizontal"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=">"
+                    android:textSize="30dp"
+                    android:id="@+id/item_title"/>
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/upload_window_subcategory"
+                    android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/label_text"
+        android:text="@string/danger_name"/>
+        <EditText
+        android:id="@+id/upload_window_title"
+        android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="请输入一个概括性的标题"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="标签："
+                style="@style/label_text"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/upload_window_tags_linearlayout">
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/upload_window_tags_input_editText"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="添加"
+                    android:background="@drawable/button_selector"
+                    android:textColor="@color/white"
+                    android:id="@+id/upload_window_tags_input_button"/>
+        </LinearLayout>
+        <TextView
+                android:text="@string/danger_rank"
+                style="@style/label_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <RatingBar
+                style="@style/yellowRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/upload_window_rank"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/label_text"
+                android:text="@string/danger_description"
+                android:id="@+id/item_category"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/upload_window_description" android:lines="3" android:hint="@string/danger_description_hint"/>
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/label_text"
+                    android:text="@string/danger_location"
+                    android:id="@+id/item_distance"/>
+            <Button android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="重新定位"
+                    android:id="@+id/upload_window_getLocButton"
+                    android:background="@drawable/button_selector"
+                    android:textColor="@color/white" android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true" android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"/>
+            <Button android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="地图选点"
+                    android:id="@+id/upload_window_jumpToMap"
+                    android:background="@drawable/button_selector"
+                    android:textColor="@color/white"
+                    android:layout_alignParentTop="true" android:layout_toLeftOf="@+id/upload_window_getLocButton"
+                    android:layout_toStartOf="@+id/upload_window_getLocButton" android:layout_marginRight="4sp"/>
+        </RelativeLayout>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="位置获取中……"
+                android:id="@+id/upload_window_latlon"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/upload_window_address"/>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/upload_window_location_description" android:hint="@string/danger_location_hint"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/label_text"
+                android:text="图片："
+                android:id="@+id/danger_info_activity_lable_tags"/>
+        <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/horizontalScrollView">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" android:id="@+id/upload_window_picturell">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/upload_window_picture" android:src="@drawable/ic_nopic"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_selector"
+                android:textColor="@android:color/white"
+                android:text="添加图片"
+                android:textSize="17sp"
+                android:padding="12dp"
+                android:id="@+id/upload_window_uploadpicture_button"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"/>
+
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_selector"
+                android:textColor="@android:color/white"
+                android:text="@string/upload"
+                android:textSize="17sp"
+                android:padding="12dp"
+                android:id="@+id/upload_window_upload_button"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"/>
+    </LinearLayout>
+</ScrollView>

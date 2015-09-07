@@ -1,0 +1,1 @@
+?characterSetResults=UTF-8&amp;characterEncoding=UTF-8&amp;useUnicode=yes

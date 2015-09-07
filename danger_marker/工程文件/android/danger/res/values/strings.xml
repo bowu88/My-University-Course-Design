@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Danger</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="danger_info_activity_title">安全隐患详情</string>
+    <string name="danger_name">标题：</string>
+    <string name="danger_tag">类别：</string>
+    <string name="danger_rank">危险等级：</string>
+    <string name="danger_description">描述：</string>
+    <string name="danger_location">位置：</string>
+    <string name="upload">上传</string>
+    <string name="danger_location_hint">详细描述</string>
+    <string name="danger_description_hint">请详细描述该安全隐患</string>
+
+    <string name="viewpager_indicator">%1$d/%2$d</string>
+
+</resources>

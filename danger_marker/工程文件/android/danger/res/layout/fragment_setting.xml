@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="8dp"
+              android:background="@color/white">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              style="@style/label_text"
+              android:text="服务端URL："/>
+    <EditText
+            android:id="@+id/root"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入服务端URL"/>
+
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+    </FrameLayout>
+    <Button
+            android:id="@+id/saveButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_selector"
+            android:textColor="@android:color/white"
+            android:text="保存"
+            android:textSize="17sp"
+            android:padding="12dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"/>
+</LinearLayout>

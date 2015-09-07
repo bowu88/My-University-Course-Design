@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>FjnuMap-定制地图</title>
+<link rel="stylesheet" href="css/ol.css" type="text/css">
+<link rel="stylesheet" href="css/jquery.cxcolor.css">
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/fjnumap.css">
+<script src="js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/ol.js"></script>
+<script type="text/javascript" src="js/jquery.cxcolor.min.js"></script>
+<script type="text/javascript" src="js/fjnumap.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		initMakeMap();
+		
+		/*var exportPNGElement = document.getElementById('export-png');
+		 if ('download' in exportPNGElement) {
+			exportPNGElement.addEventListener('click', function(e) {
+				map.once('postcompose', function(event) {
+					var canvas = event.context.canvas;
+					exportPNGElement.href = canvas.toDataURL('image/png');
+				});
+				map.renderSync();
+			}, false);
+		} else {
+			var info = document.getElementById('no-download');
+			info.style.display = '';
+		} */
+	});
+</script>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#fjnumap-navbar-collapse">
+					<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">FjnuMap</a>
+			</div>
+			<div class="collapse navbar-collapse" id="fjnumap-navbar-collapse">
+				<ul class="nav nav-pills navbar-nav">
+					<li><a href="index.html">首页</a></li>
+					<li><a href="time_machine.html">时光机</a></li>
+					<li class="active"><a href="#">定制地图</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-8 column">
+				<!-- 地图窗口 -->
+				<div class="panel panel-default">
+					<div id="map" class="panel-body"></div>
+				</div>
+			</div>
+			<div class="col-md-4 column">
+				<div class="panel-group" id="panel-800031">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a class="panel-title collapsed" data-toggle="collapse"
+								data-parent="#panel-800031" href="#panel-element-861068">图层</a>
+						</div>
+						<div id="panel-element-861068" class="panel-collapse in">
+							<div class="panel-body">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>图层</th>
+											<th>透明度</th>
+										</tr>
+									</thead>
+									<tbody id="layer_ctrl">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a class="panel-title" data-toggle="collapse"
+								data-parent="#panel-800031" href="#panel-element-253052">视图</a>
+						</div>
+						<div id="panel-element-253052" class="panel-collapse collapse">
+							<div class="panel-body">
+								<div class="form-group">
+									<label><span class="glyphicon glyphicon-repeat"></span>&nbsp;&nbsp;旋&nbsp;&nbsp;&nbsp;&nbsp;转</label>
+									<input id="rotation" type="range" min="-3.141592653589793"
+										max="3.141592653589793" step="0.01" />
+								</div>
+								<div class="form-group">
+									<label><span class="glyphicon glyphicon-resize-full"></span>&nbsp;&nbsp;分辨率</label>
+									<input id="resolution" class="form-control" type="number"
+										min="0" step="0.1" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a class="panel-title" data-toggle="collapse"
+								data-parent="#panel-800031" href="#panel-element-32322">画笔工具</a>
+						</div>
+						<div id="panel-element-32322" class="panel-collapse collapse">
+							<div class="panel-body">
+								<label><input type="checkbox" id="draw_tool">开启画笔</label>
+								<hr>
+								<label><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;形状
+								</label> <select id="draw_type" class="form-control">
+									<option value="Point">点</option>
+									<option value="LineString">线</option>
+									<option value="Polygon">多边形</option>
+								</select>
+								<hr>
+								<label><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;设置</label>
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<td>点</td>
+											<td>半径：<input id="p_r" type="number" min="0.5" step="0.5"  class="fm-setting"
+												value="7">
+											</td>
+											<td><input id="color_p" type="text" class="fm-setting input_cxcolor" readonly value="#0099FF">
+											</td>
+										</tr>
+										<tr>
+											<td>边</td>
+											<td>宽度：<input id="s_w" type="number" min="0.5" step="0.5"  class="fm-setting"
+												value="3">
+											</td>
+											<td><input id="color_s" type="text" class="fm-setting input_cxcolor" readonly value="#0099FF">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<hr>
+								<div class="btn-group col-md-12">
+									<button id="back" type="button" class="btn btn-default col-md-6"><span class="glyphicon glyphicon-arrow-left"></span> 撤消</button>
+									<button type="button" class="btn btn-danger col-md-6"  data-toggle="modal" data-target="#myModal">
+										<span class="glyphicon glyphicon-trash"></span> 清空画布
+									</button>
+								</div>
+								<!-- 模态框 -->
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+								   aria-labelledby="myModalLabel" aria-hidden="true">
+								   <div class="modal-dialog">
+								      <div class="modal-content">
+								         <div class="modal-header">
+								            <button type="button" class="close" data-dismiss="modal" 
+								               aria-hidden="true">×
+								            </button>
+								            <h4 class="modal-title text-center" id="myModalLabel">
+								               	注意
+								            </h4>
+								         </div>
+								         <div class="modal-body">
+								         <p>确定清空画布？<strong>此操作不可撤销</strong></p>
+								         </div>
+								         <div class="modal-footer">
+								            <button id="clearMap" type="button" class="btn btn-danger" data-dismiss="modal">确定
+								            </button>
+								            <button type="button" class="btn btn-default" data-dismiss="modal">取消
+								            </button>
+								         </div>
+								      </div><!-- /.modal-content -->
+								   </div><!-- /.modal-dialog -->
+								</div><!-- /.modal -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<a id="saveMap" type="button" download="map.png"
+					class="btn btn-success btn-lg btn-block"> <span
+					class="glyphicon glyphicon-floppy-save"></span> 导出地图 </a>
+				<!-- <a id="export-png" class="btn" download="map.png"><i
+					class="icon-download"></i> Export PNG</a> -->
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

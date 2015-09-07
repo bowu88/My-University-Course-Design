@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/marker"
+            android:id="@+id/item_icon"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="标题标题标题"
+                android:id="@+id/item_title" android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/item_icon" android:layout_toEndOf="@+id/item_icon"/>
+        <!--
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="类别>子类别"
+                android:layout_marginRight="12dp"
+                android:id="@+id/item_category"
+                android:layout_toStartOf="@+id/item_distance"
+                android:layout_below="@+id/item_title" android:layout_toLeftOf="@+id/item_distance"/>
+                -->
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="距离"
+                android:id="@+id/item_distance" android:layout_centerVertical="true" android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+        <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_ratingbar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_toEndOf="@+id/item_icon"
+                android:layout_below="@+id/item_title" android:layout_toRightOf="@+id/item_icon"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.5"
+                android:id="@+id/item_rank" android:layout_alignTop="@+id/item_ratingbar"
+                android:layout_toRightOf="@+id/item_ratingbar" android:layout_toEndOf="@+id/item_ratingbar"/>
+
+</RelativeLayout>

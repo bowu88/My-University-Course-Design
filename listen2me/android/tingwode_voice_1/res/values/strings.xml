@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">听我的</string>
+    
+    <!-- 登录界面 -->
+    <string name="login_button">登录</string>
+    <!-- 注册界面 -->
+    <string name="regist_button">注册</string>
+    <string name="regist_email">注册邮箱</string>
+    <string name="pwd">密码</string>
+    <string name="pwd2">确认密码</string>
+
+</resources>

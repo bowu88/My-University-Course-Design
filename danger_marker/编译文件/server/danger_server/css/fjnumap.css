@@ -1,0 +1,49 @@
+.map:-moz-full-screen {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+.map:-webkit-full-screen {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+.map:-ms-fullscreen {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+.map:full-screen {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+.ol-rotate {
+	top: 3em;
+}
+
+#map {
+	padding: 0;
+}
+
+#info {
+	position: relative;
+	height: 1px;
+	width: 1px;
+	z-index: 100;
+}
+
+/* button.ol-zoom-extent > span {
+	background:white;
+	background-image: @icon-font-name:"glyphicons-halflings-regular";
+} */
+
+.navbar-inverse .navbar-brand{
+	font-weight:500;
+	text-shadow:0 0 15px white;
+	color: #D0D0D0;
+}

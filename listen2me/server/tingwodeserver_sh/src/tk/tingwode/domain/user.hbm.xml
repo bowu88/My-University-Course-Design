@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="tk.tingwode.domain.User" table="users">
+
+		<id name="id" type="string">
+			<column name="id"></column>
+			<generator class="uuid"></generator>
+		</id>
+
+		<property name="username" type="string" not-null="true" unique="true" length="100" column="username" />
+
+		<property name="email" type="string" not-null="true" unique="true" length="100" column="email" />
+
+		<property name="gender" type="string" length="4" column="gender" />
+
+		<property name="password" type="string" not-null="true" length="20" column="password" />
+
+		<property name="photo_url" type="string" length="100" column="photo_url" />
+
+		<!-- 用户所有的声音 -->
+		<set name="voices" inverse="true" lazy="false" cascade="all">
+			<key column="user_id"></key>
+			<one-to-many class="tk.tingwode.domain.Voice" />
+		</set>
+		<!-- 用户所有的专辑 -->
+		<set name="albums" inverse="true" lazy="false" cascade="all">
+			<key column="user_id"></key>
+			<one-to-many class="tk.tingwode.domain.Album" />
+		</set>
+		<!-- 赞的声音 -->
+		<set name="voices_like"  inverse="false" lazy="false" cascade="save-update" table="voice_like">
+            <key column="user_id"></key>
+            <many-to-many class="tk.tingwode.domain.Voice" column="voice_id"></many-to-many>
+        </set>
+		<!-- 赞的声音 -->
+		<set name="voices_favorite"  inverse="false" lazy="false" cascade="save-update" table="voice_favorites">
+            <key column="user_id"></key>
+            <many-to-many class="tk.tingwode.domain.Voice" column="voice_id"></many-to-many>
+        </set>
+		<!-- 赞的专辑 -->
+		<set name="albums_like"  inverse="false" lazy="false" cascade="save-update" table="album_like">
+            <key column="user_id"></key>
+            <many-to-many class="tk.tingwode.domain.Album" column="album_id"></many-to-many>
+        </set>
+		<!-- 赞的专辑 -->
+		<set name="albums_favorite"  inverse="false" lazy="false" cascade="save-update" table="album_favorites">
+            <key column="user_id"></key>
+            <many-to-many class="tk.tingwode.domain.Album" column="album_id"></many-to-many>
+        </set>
+        
+        <!-- 关注 -->
+        <set name="following"  inverse="false" lazy="false" cascade="save-update" table="follow">
+            <key column="following_id"></key>
+            <many-to-many class="tk.tingwode.domain.User" column="followed_id"></many-to-many>
+        </set>
+        
+        <!-- 粉丝 -->
+        <set name="followers"  inverse="true" lazy="false" cascade="save-update" table="follow">
+            <key column="followed_id"></key>
+            <many-to-many class="tk.tingwode.domain.User" column="following_id"></many-to-many>
+        </set>
+	</class>
+</hibernate-mapping>
