@@ -6,7 +6,7 @@
 
 * [11GIS网站](/11gis_web) (2014.1): 为班级做的一个网站
 * [莆田市地震应急信息网站](/asylumsystem_tianditu) : 应急避难场所地图可视化,空间分析;地震信息可视化
-* ["听我的"--声音地图](/asylumsystem_tianditu) : 基于位置的声音分享
-* [FjnuMap--福师大校园地图](/fjnumap):基于开源GIS的校园地图
+* ["听我的"--声音地图](/listen2me) : 基于位置的声音分享
+* [FjnuMap--福师大校园地图](/fjnumap):基于开源GIS的校园地图（大学期间最满意的作品）
 * [DangerMarker--安全隐患信息共享平台](/danger_marker):基于Android的空间信息分享系统
 
