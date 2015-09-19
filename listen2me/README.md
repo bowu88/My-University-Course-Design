@@ -15,8 +15,6 @@
 
 ![欢迎界面](img/android端/1.欢迎界面.png)
 
-![登录界面](img/android端/2.登录界面.png)
-
 
 
 
